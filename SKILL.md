@@ -54,7 +54,16 @@ To auto-sync with AI-generated messages:
 3. **Commit**: `git commit -m "<AI-generated message>"`
 4. **Push**: `git push origin $(git branch --show-current)`
 
-## 3. Pre-flight CI Checks
+## 3. Core Git Operations (Discovery & Maintenance)
+
+Keep your local copy fresh and explore history:
+- **Pull**: `git pull --rebase origin $(git branch --show-current)` (Fetch and rebase to keep history clean).
+- **Log**: `git log --oneline --graph --decorate -n 10` (Visual history of last 10 commits).
+- **Status**: `git status -sb` (Concise status showing branch info).
+- **Diff**: `git diff` (Unstaged changes) or `git diff --cached` (Staged changes).
+- **Show**: `git show <commit-hash>` (Details of a specific commit).
+
+## 4. Pre-flight CI Checks
 
 Run local checks before pushing to prevent broken builds:
 - **Python**: `pytest` or `python -m py_compile *.py`
