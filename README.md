@@ -12,3 +12,15 @@ AI-powered tool for sync and deployment.
 
 ## 🛠️ CI/CD
 - GitHub Actions automatically runs on every push to `master`.
+
+## 🇨🇳 国产大模型适配 (Aliyun Bailian / Qwen)
+
+The DevOps Agent supports seamless integration with domestic LLMs like Aliyun Bailian (Qwen).
+
+### Configuration Example
+1. Add Aliyun credentials to your `.env`:
+   ```env
+   ALIYUN_BAILIAN_API_KEY=your_sk_here
+   OPENAI_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+   ```
+2. Check `examples/lightrag_aliyun_demo.py` for implementation details.
