@@ -1,0 +1,22 @@
+# DevOps Agent RAG Service Dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# 安装 Git (LightRAG 安装需要)
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
+# 拷贝依赖文件
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+# 安装额外依赖 (yaml, lightrag)
+RUN pip install --no-cache-dir pyyaml lightrag-hku[api]
+
+# 拷贝项目文件
+COPY . .
+
+# 暴露 LightRAG 默认 API 端口
+EXPOSE 8020
+
+# 运行适配了阿里云的 demo 程序 (也可以改为启动 lightrag-server)
+CMD ["python", "examples/lightrag_aliyun_demo.py"]

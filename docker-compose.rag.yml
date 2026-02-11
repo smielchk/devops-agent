@@ -1,0 +1,13 @@
+services:
+  rag-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.rag
+    ports:
+      - "8020:8020"
+    env_file:
+      - .env
+    environment:
+      - ALIYUN_BAILIAN_API_KEY=${ALIYUN_BAILIAN_API_KEY}
+    volumes:
+      - ./rag_storage:/app/bailian_test_storage
