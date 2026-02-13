@@ -53,6 +53,9 @@ metadata:
     - Check for `Dockerfile` or `docker-compose.yml`.
 
 ## 5. Quality & Operations (CI/Run)
+- **AI-Native IDE (opencode)**: **CRITICAL** - For complex code maintenance, refactoring, or feature implementation, prefer using `opencode run`.
+    - Usage: `opencode run --model opencode/kimi-k2.5-free "task description"`.
+    - Context: Always run within the project root to ensure `opencode` can see the codebase.
 - **Pre-flight**: Run `pytest` or `python -m py_compile` before pushing.
 - **Remote CI**: `gh run list` and `gh run view --log-failed` to check GitHub Actions.
 - **One-Click Run**: Execute identified start scripts from README.
